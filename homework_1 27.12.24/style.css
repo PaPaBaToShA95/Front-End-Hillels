@@ -15,5 +15,6 @@ body {
 p{
     text-align: justify;
     letter-spacing: 3px;
-    text-indent: 100px;
+    text-indent: 50px;
+    text-decoration: underline;
 }
