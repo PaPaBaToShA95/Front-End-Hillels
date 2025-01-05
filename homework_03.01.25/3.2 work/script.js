@@ -1,9 +1,10 @@
 function form_popup() {
-  const name = document.getElementById("name").value;
-  const age = document.getElementById("age").value;
-  const prof = document.getElementById("prof").value;
-  alert(`Мене звати ${name}, мені ${age} років, я працюю в сфері ${prof}`);
-  console.log(
-    `Мене звати ${name}, мені ${age} років, я працюю в сфері ${prof}`
-  );
-}
+    const nameto=document.getElementById('name').value;
+document.getElementById('namejs').textContent=nameto;
+const ageto=document.getElementById('age').value;
+document.getElementById('agejs').textContent=ageto;
+const profto=document.getElementById('prof').value;
+document.getElementById('profjs').textContent=profto;
+  document.getElementById("output").style.display = "block";
+};
+
