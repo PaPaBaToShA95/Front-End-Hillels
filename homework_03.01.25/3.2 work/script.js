@@ -1,10 +1,6 @@
-function form_popup() {
-    const nameto=document.getElementById('name').value;
-document.getElementById('namejs').textContent=nameto;
-const ageto=document.getElementById('age').value;
-document.getElementById('agejs').textContent=ageto;
-const profto=document.getElementById('prof').value;
-document.getElementById('profjs').textContent=profto;
-document.getElementById("output").style.display = "block";
-console.log(`Привіт! Мене звати ${nameto}. Мені ${ageto} років. Моя професія ${profto}.`);
-};
+
+let name = prompt('Як тебе звати?', 'Введіть ваше ім\'я');
+let age = prompt('Скільки тобі років?' , 'Введіть ваш вік');
+let profession = prompt('Яка у тебе професія?', 'Введіть вашу професію');
+
+alert(`Мене звати ${name}, Мені ${age}, Моя професія ${profession}.`);
