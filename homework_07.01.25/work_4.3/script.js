@@ -28,7 +28,7 @@ else if (parceYear >= 2025) {
 }
 else {
   userAge = 2025 - parceYear;
-  userAgeMessage = `В 2025 році вам має бути ${userAge} років.`
+  userAgeMessage = `В 2025 році вам має бути ${userAge} роки(ів).`
 }
 
 let userLive = prompt('В якому місті ви проживаєте?');
