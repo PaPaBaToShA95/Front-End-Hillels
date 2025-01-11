@@ -4,6 +4,9 @@ let userCityMessage = '';
 let userHobbiMessage = '';
 let city = '';
 let hobbi = '';
+let nowYear = new Date().getFullYear();
+
+
 
 
 
@@ -29,7 +32,7 @@ else if (parceYear >= 2025) {
 
 }
 else {
-  userAge = 2025 - parceYear;
+  userAge = nowYear - parceYear;
   userAgeMessage = `В 2025 році вам має бути ${userAge} роки(ів).`
 }
 
