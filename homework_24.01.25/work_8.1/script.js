@@ -15,3 +15,28 @@ let ladder = {
 };
 
 ladder.up().up().down().up().showStep()
+
+
+
+
+
+let counter = {
+  cycle: 0,
+  increase: function () {
+    this.cycle += 1;
+    return this
+  },
+  decrease: function () {
+    this.cycle - +1;
+    return this
+  },
+  set: function (value) {
+    this.cycle += value;
+    return this
+  },
+  show: function () {
+    console.log(this.cycle)
+  }
+};
+
+counter.increase().increase().increase().set(20).show()
