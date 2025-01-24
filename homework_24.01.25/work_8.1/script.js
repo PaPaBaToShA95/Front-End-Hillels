@@ -1,14 +1,17 @@
-function createSum() {
-  let sumary = 0;
-  return function (num) {
-    sumary += num;
-    return sumary;
-  };
-}
 
-const sum = createSum();
+let ladder = {
+  step: 0,
+  up: function () {
+    this.step += 1;
+    return this
+  },
+  down: function () {
+    this.step -= 1;
+    return this
+  },
+  showStep: function () {
+    console.log(this.step)
+  }
+};
 
-console.log(sum(4));
-console.log(sum(6));
-console.log(sum(10));
-console.log(sum(7)); 
+ladder.up().up().down().up().showStep()
