@@ -11,6 +11,7 @@ let ladder = {
   },
   showStep: function () {
     console.log(this.step)
+    return this
   }
 };
 
@@ -27,7 +28,7 @@ let counter = {
     return this
   },
   decrease: function () {
-    this.cycle - +1;
+    this.cycle -= 1;
     return this
   },
   set: function (value) {
