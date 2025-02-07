@@ -27,8 +27,28 @@ const contactBook = {
         this.contacts.forEach(contact => {
             console.log(`Ім'я: ${contact.name}, Телефон: ${contact.phone}, Пошта: ${contact.email}`);
         });
+    },
+    searchContacts(partialName) {
+        const matchingContacts = this.contacts.filter(contact =>
+            contact.name.toLowerCase().includes(partialName.toLowerCase())
+        );
+        if (matchingContacts.length > 0) {
+            matchingContacts.forEach(contact => {
+                console.log(`Ім'я: ${contact.name}, Телефон: ${contact.phone}, Пошта: ${contact.email}`);
+            });
+        } else {
+            console.log("Збігів не знайдено, спробуйте ввести дані ще раз");
+        }
     }
 };
-contactBook.addContact(`Вася Пупкін`, `+380932957409`, `vasya.pupkin@gmail.com`)
-contactBook.contactList()
 
+
+contactBook.addContact('Вася Пупкін', '+380932957409', 'vasya.pupkin@gmail.com');
+
+
+contactBook.contactList();
+
+contactBook.searchContacts('ан');
+contactBook.searchContacts('Іван');
+contactBook.searchContacts('пуп');
+contactBook.searchContacts('петро');
