@@ -1,0 +1,49 @@
+body{
+    display: flex;
+    justify-content: center;
+   
+}
+.homework{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+     margin-top: 50px;
+     gap: 20px;
+     width: 500px;
+     height: auto;
+}
+.imgDiv{
+    width: auto;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #000;
+    border-radius: 5px;
+}
+.homework__text{
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: black;
+
+}
+.size__button{
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    background-color: #f5f5f5;
+    border: 1px solid #000;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.color__button{
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    background-color: #f5f5f5;
+    border: 1px solid #000;
+    border-radius: 5px;
+    cursor: pointer;
+}
