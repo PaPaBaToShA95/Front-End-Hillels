@@ -1,70 +1,45 @@
-body{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-   align-items: center;
-   gap: 20px;
-}
-.input{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 50px;
-    gap: 20px;
-    width: 200px;
-    height: auto;
-}
-.homework{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-     margin-top: 50px;
-     gap: 20px;
-     width: 500px;
-     height: auto;
-}
-.imgDiv{
-    width: auto;
-    height: 500px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid lightblue;
-    border-radius: 5px;
-}
-.homework__text{
-    font-size: 20px;
-    font-weight: 600;
-    margin-bottom: 20px;
-    color: black;
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
 
 }
-.size__button{
-    padding: 10px 20px;
-    font-size: 16px;
-    font-weight: 600;
-    background-color: #f5f5f5;
-    border: 1px solid #000;
-    border-radius: 5px;
-    cursor: pointer;
+
+ul {
+    list-style-type: none;
+    padding: 0;
 }
-.color__button{
-    padding: 10px 20px;
-    font-size: 16px;
-    font-weight: 600;
-    background-color: #f5f5f5;
-    border: 1px solid #000;
+
+li {
+    margin: 10px 0;
+    background-color: #f4f4f4;
+    padding: 10px;
     border-radius: 5px;
-    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
 }
-.button{
-       padding: 10px 20px;
-    font-size: 16px;
-    font-weight: 600;
-    background-color: #f5f5f5;
-    border: 1px solid #000;
-    border-radius: 5px;
+
+button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
     cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: darkred;
+}
+
+.title {
+    font-size: 1.5em;
+}
+
+.homework {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    width: 500px;
+    gap: 15px;
 }
