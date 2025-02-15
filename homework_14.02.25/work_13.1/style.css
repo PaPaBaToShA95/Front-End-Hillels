@@ -1,0 +1,110 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.input {
+    font-size: 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 90%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.title {
+    font-size: 30px;
+    font-weight: 600;
+    color: red;
+}
+
+.how {
+    font-size: 38px;
+    font-weight: 600;
+    color: black;
+    margin: 0;
+}
+
+.button {
+    padding: 10px 20px;
+    font-size: 24px;
+    font-weight: 600;
+    background-color: lightcoral;
+    border: outset;
+    border-radius: 15px;
+    cursor: pointer;
+    color: white;
+}
+
+.errorEmail {
+    display: none;
+    color: red;
+    font-size: 26px;
+    text-align: center;
+    margin: 0;
+}
+
+.errorMessage {
+    display: block;
+    color: red;
+    font-size: 26px;
+    text-align: center;
+    margin: 0;
+}
+
+.homework {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    height: auto;
+    background-color: antiquewhite;
+    border-radius: 25px;
+    padding: 20px;
+    gap: 30px;
+}
+
+.imgDiv {
+    width: auto;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid lightblue;
+    border-radius: 5px;
+}
+
+.homework__text {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: black;
+
+}
+
+.size__button {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    background-color: #f5f5f5;
+    border: 1px solid #000;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.color__button {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    background-color: #f5f5f5;
+    border: 1px solid #000;
+    border-radius: 5px;
+    cursor: pointer;
+}
