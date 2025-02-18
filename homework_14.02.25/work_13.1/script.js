@@ -53,5 +53,5 @@ btn.addEventListener('click', function (event) {
     }
 });
 $(document).ready(function () {
-    $('#phone').inputmask('+38 (999) 999-99-99');
+    $('#text1').inputmask('+38 (999) 999-99-99');
 });

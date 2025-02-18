@@ -1,0 +1,86 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #bababa;
+}
+
+.title {
+    font-size: 45px;
+    font-weight: 600;
+    color: red;
+    margin-bottom: 20px;
+    text-shadow: red 1px 0 10px;
+}
+
+.slider {
+    width: max-content;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+}
+
+.imgSlider {
+    width: 600px;
+    height: 300px;
+}
+
+.sliderButtonLeft {
+    display: block;
+    background-color: #ffffff;
+    border-radius: 25px;
+    cursor: pointer;
+    padding: 15px 20px 15px 20px;
+}
+
+.sliderButtomRight {
+    display: block;
+    background-color: #ffffff;
+    border-radius: 25px;
+    cursor: pointer;
+    padding: 15px 20px 15px 20px;
+}
+
+.homework {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.slideDiv {
+    width: auto;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.slider__item {
+    display: none;
+}
+
+#circles-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.circule {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: lightgray;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.circule.active {
+    background-color: blue;
+}
