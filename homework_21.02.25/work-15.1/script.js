@@ -1,7 +1,10 @@
 const toDoList = document.getElementById('todo__list');
+const completedList = document.getElementById('completed__list');
 const input = document.getElementById('todo__input');
 const addBtn = document.getElementById('todo__add');
 const localStorageKey = 'todoList';
+const form = document.querySelector('form');
+const completedDiv = document.querySelector('.completed');
 
 if (localStorage.getItem(localStorageKey)) {
     const savedList = JSON.parse(localStorage.getItem(localStorageKey));
@@ -12,12 +15,21 @@ if (localStorage.getItem(localStorageKey)) {
 
 addBtn.addEventListener('click', (e) => {
     e.preventDefault();
+    handleTodo();
+});
+
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    handleTodo();
+});
+
+function handleTodo() {
     if (input.value) {
         createTodoItem(input.value, false);
         saveTodoList();
         input.value = '';
     }
-});
+}
 
 function createTodoItem(text, isChecked) {
     const li = document.createElement('li');
@@ -51,14 +63,33 @@ function createTodoItem(text, isChecked) {
     deleteBtn.textContent = 'Видалити';
     deleteBtn.classList.add('todo-item__delete');
     deleteBtn.addEventListener('click', () => {
-        li.remove();
+        moveToCompleted(li);
         saveTodoList();
     });
 
     li.appendChild(deleteBtn);
-    toDoList.appendChild(li);
+
+    toDoList.prepend(li);
 }
 
+function moveToCompleted(li) {
+    const span = li.querySelector('.todo-item__description');
+    const completedLi = document.createElement('li');
+    completedLi.textContent = span.textContent;
+
+    const removeBtn = document.createElement('button');
+    removeBtn.textContent = 'Видалити назавжди';
+    removeBtn.classList.add('todo-item__delete');
+    removeBtn.addEventListener('click', () => {
+        completedLi.remove();
+        checkCompletedList();
+    });
+
+    completedLi.appendChild(removeBtn);
+    completedList.prepend(completedLi);
+    li.remove();
+    checkCompletedList();
+}
 
 function saveTodoList() {
     const todoItems = [];
@@ -69,3 +100,30 @@ function saveTodoList() {
     });
     localStorage.setItem(localStorageKey, JSON.stringify(todoItems));
 }
+
+function checkCompletedList() {
+    if (completedList.children.length > 0) {
+        completedDiv.style.display = 'block';
+    } else {
+        completedDiv.style.display = 'none';
+    }
+}
+
+function createClearStorageButton() {
+
+    if (localStorage.getItem(localStorageKey)) {
+        const clearBtn = document.createElement('button');
+        clearBtn.textContent = 'Очистити Сховище';
+        clearBtn.classList.add('clear-storage-btn');
+
+        clearBtn.addEventListener('click', () => {
+            localStorage.removeItem(localStorageKey);
+            location.reload();
+        });
+
+        document.body.appendChild(clearBtn);
+    }
+}
+
+
+window.addEventListener('DOMContentLoaded', createClearStorageButton);
