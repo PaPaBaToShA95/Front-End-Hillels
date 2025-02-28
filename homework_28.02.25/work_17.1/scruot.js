@@ -1,32 +1,21 @@
-function Calculator() {
-    this.add = function (a, b) {
-        return a + b;
-    };
 
-    this.subtract = function (a, b) {
-        return a - b;
-    };
+class Coach {
+    constructor(name, specialization, rating) {
+        this.name = name;
+        this.specialization = specialization;
+        this.rating = rating;
+    }
 
-    this.multiply = function (a, b) {
-        return a * b;
-    };
+    displayInfo() {
+        console.log(`Тренер: ${this.name}, Спеціалізація: ${this.specialization}, Рейтинг: ${this.rating}`);
+    }
 
-    this.divide = function (a, b) {
-        if (b !== 0) {
-            return a / b;
-        } else {
-            return "Помилка: ділення на нуль!";
-        }
-    };
 }
 
-const calc = new Calculator();
+const coach1 = new Coach('Джон Сноу', 'Фітнес', 4.7);
 
-console.log(calc.add(5, 3)); 
-console.log(calc.subtract(10, 4));
-console.log(calc.multiply(3, 6)); 
-console.log(calc.divide(8, 2)); 
+const coach2 = new Coach('Аліса Джонс', 'Йога', 4.9);
 
+coach1.displayInfo(); 
 
-
-// Не знаю чи це дуже чесно з мого боку, але в попередній 16 лекції цей код вже був, я його трохи підправив і власне готово)
+coach2.displayInfo();
