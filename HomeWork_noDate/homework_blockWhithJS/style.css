@@ -1,0 +1,108 @@
+body {
+    display: block;
+    background-color: black;
+    font-family: "Playfair Display", serif;
+    color: white;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    gap: 20px;
+}
+
+.inputBlock {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    flex-direction: column;
+    gap: 10px;
+}
+
+input {
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    background-color: #333;
+    color: white;
+    width: 95%;
+    cursor: pointer;
+}
+
+input:focus {
+    outline: none;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.btn {
+    text-align: center;
+    height: auto;
+    font-size: 17px;
+    padding: 5px 15px;
+    border-radius: 5px;
+    border: none;
+    background-color: #333;
+    color: white;
+    width: fit-content;
+    cursor: pointer;
+}
+
+.btn:active {
+    background-color: #555;
+    transition: all 0.3s;
+}
+
+.btn:hover {
+    background-color: #555;
+    transition: all 0.3s;
+}
+
+.poster {
+    margin-top: 10px;
+    height: 200px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 50px;
+    border: #555 solid 3px;
+    border-radius: 15px;
+    width: max-content;
+}
+
+.description {
+    text-align: justify;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: max-content;
+}
+
+.btns {
+    display: flex;
+    gap: 10px;
+    margin: 0 10px 15px 10px;
+}

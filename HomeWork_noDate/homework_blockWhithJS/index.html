@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomeWork Practic JS</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="main">
+        <div class="title">HomeWork Practic JS</div>
+        <div class="inputBlock">
+            <input type="text" class="input" placeholder="Введіть назву вільму" id="nameFilm">
+            <input type="text" class="input" placeholder="Введіть рік випуску" id="yearFilm">
+            <input type="text" class="input" placeholder="Введіть жанр" id="genreFilm">
+            <input type="number" class="input" placeholder="Введіть рейтинг" id="ratingFilm" aria-valuemin="0"
+                aria-valuemax="10" min="0" max="10">
+            <input type="link" class="input" placeholder="Введіть посилання на постер" id="posterFilm">
+            <input type="link" class="input" placeholder="Посилання на трейлер" id="trailerFilm">
+            <input type="link" class="input" placeholder="Посилання на фільм" id="linkFilm">
+            <input type="text" class="input" placeholder="Введіть опис фільму" id="descriptionFilm">
+        </div>
+        <button class="btn" id="addFilm">Додати фільм</button>
+
+        <div class="list" id="list"></div>
+    </div>
+</body>
+
+</html>
