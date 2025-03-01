@@ -36,10 +36,10 @@ function render() {
             </div>
             <div class="info">
                 <div class="name">${film.name}</div>
-                <div class="year">${film.year}</div>
-                <div class="genre">${film.genre}</div>
-                <div class="rating">${'⭐'.repeat(Math.round(film.rating))}</div>
-                <div class="description">${film.description}</div>
+                <div class="year">${film.year} рік</div>
+                <div class="genre">Жанр:${film.genre}</div>
+                <div class="rating">Рейтинг:<div class="star">${'⭐'.repeat(Math.round(film.rating))}</div></div>
+                <div class="description"><p class="descriptionTitle">Опис:</p>${film.description}</div>
                 <div class="btns">
                 <a href="${film.trailer}" class="btn">Дивитись трейлер</a>
                 <a href="${film.link}" class="btn">Дивитись фільм</a>
