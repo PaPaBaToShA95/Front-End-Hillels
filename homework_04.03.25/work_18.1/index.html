@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="гл">
+<html lang="uk">
 
 <head>
     <meta charset="UTF-8">
@@ -17,17 +17,21 @@
             <img class="titleImg__img" src="img/timer.svg" alt="Таймер">
             <div class="timerTitle">Таймер відліку</div>
         </div>
-        <div class="timer">
-            <span id="hour" class="timer">00</span>:<span id="min" class="timer">00</span>:<span id="sec" class="timer">00</span>
-            
+        <div id="timers" class="timers">
+            <span id="hour" class="timer">00</span>:<span id="min" class="timer">00</span>:<span id="sec"
+                class="timer">00</span>
+            <audio id="tickSound" src="audio/sec.mp3" preload="auto"></audio>
         </div>
         <div class="setTimer">
-            <input type="number" class="setTimer__hour" placeholder="Години">
-            <input type="number" class="setTimer__min" placeholder="Хвилини">
-            <input type="number" class="setTimer__sec" placeholder="Секунди">
-            
+            <input type="number" class="setTimer__hour" placeholder="Години" min="0" max="23">
+            <input type="number" class="setTimer__min" placeholder="Хвилини" min="0" max="59">
+            <input type="number" class="setTimer__sec" placeholder="Секунди" min="0" max="59">
+            <audio id="endSound" src="audio/end.mp3" preload="auto"></audio>
         </div>
-        <button class="setTimer__btn">Встановити таймер</button>
+        <div class="btnDiv">
+            <button class="setTimer__btn">Встановити таймер</button>
+            <button id="cencelTimer" class="cencelTimer__btn">Відмінити таймер</button>
+        </div>
     </main>
 
 </body>

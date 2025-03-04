@@ -1,24 +1,28 @@
-body{
+body {
     background-color: black;
     color: white;
 }
-.titleImg__img{
+
+.titleImg__img {
     width: 40px;
     height: 40px;
     object-fit: cover;
 }
-.titleImg{
+
+.titleImg {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 20px;
 }
-.timerTitle{
+
+.timerTitle {
     font-size: 20px;
     font-weight: 700;
-    
+
 }
-main{
+
+main {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -26,11 +30,26 @@ main{
     margin-top: 50px;
     gap: 20px;
 }
-span{
+
+span {
     font-size: 20px;
     font-weight: 700;
 }
-.setTimer__btn{
+.cencelTimer__btn{
+    display: none;
+    padding: 10px 20px;
+    background-color: #3f3f3f;
+    border: 1px solid white;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+
+}
+.cencelTimer__btn:hover {
+    transform: matrix(1.1, 0, 0, 1.1, 0, 0);
+    transition: all 0.3s;
+}
+.setTimer__btn {
     padding: 10px 20px;
     background-color: #3f3f3f;
     border: 1px solid white;
@@ -38,14 +57,33 @@ span{
     border-radius: 5px;
     cursor: pointer;
 }
-.setTimer__btn:hover{
-  transform: matrix(1.1, 0, 0, 1.1, 0, 0);
-  transition: all 0.3s;
+
+.setTimer__btn:hover {
+    transform: matrix(1.1, 0, 0, 1.1, 0, 0);
+    transition: all 0.3s;
 }
-input{
+
+input {
+    width: 150px;
     padding: 10px 20px;
     border: 1px solid white;
     border-radius: 5px;
     background-color: #3f3f3f;
     color: white;
+}
+.timers{
+    display: none;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid white;
+    padding: 5px 10px;
+    border-radius: 15px;
+}
+.timer{
+    font-size: 36px;
+}
+.btnDiv{
+    display: flex;
+    gap: 20px;
 }
