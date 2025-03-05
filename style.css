@@ -1,0 +1,9 @@
+.number{
+    color: red;
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+}
+.number:hover{
+    color: green;
+}

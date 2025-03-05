@@ -8,12 +8,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const endSound = document.getElementById('endSound');
     const tickSound = document.getElementById('tickSound');
     let endSoundPlayed = false;
+    const setTimer = document.getElementById('setTimer');
 
     function formatTime(value) {
         return value.toString().padStart(2, '0');
     }
 
     setTimerBtn.addEventListener('click', () => {
+        
         let hourValue = document.querySelector('.setTimer__hour').value;
         let minValue = document.querySelector('.setTimer__min').value;
         let secValue = document.querySelector('.setTimer__sec').value;
@@ -28,6 +30,8 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelector('.setTimer__min').value = '';
         document.querySelector('.setTimer__sec').value = '';
         endSoundPlayed = false;
+       
+
     });
 
     cencelTimerBtn.addEventListener('click', () => {
@@ -47,20 +51,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
         if (+sec.textContent > 0) {
+            sec.classList.add('flip-down');
             sec.textContent = formatTime(+sec.textContent - 1);
             tickSound.play();
+            setTimer.style.display = 'none';
+            setTimerBtn.style.display = 'none';
         } else if (+min.textContent > 0) {
             min.textContent = formatTime(+min.textContent - 1);
             sec.textContent = 59;
             tickSound.play();
+            setTimer.style.display = 'none';
+            setTimerBtn.style.display = 'none';
         } else if (+hour.textContent > 0) {
             hour.textContent = formatTime(+hour.textContent - 1);
             min.textContent = 59;
             sec.textContent = 59;
             tickSound.play();
+            setTimer.style.display = 'none';
+            setTimerBtn.style.display = 'none';
         } else if (+hour.textContent === 0 && +min.textContent === 0 && +sec.textContent === 0) {
             timers.style.display = 'none';
             cencelTimerBtn.style.display = 'none';
+            setTimer.style.display = 'block';
+            setTimerBtn.style.display = 'block';
         }
     }, 1000);
 });

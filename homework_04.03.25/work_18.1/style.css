@@ -50,6 +50,7 @@ span {
     transition: all 0.3s;
 }
 .setTimer__btn {
+    display: block;
     padding: 10px 20px;
     background-color: #3f3f3f;
     border: 1px solid white;
@@ -72,6 +73,7 @@ input {
     color: white;
 }
 .timers{
+    font-size: 40px;
     display: none;
     flex-direction: row;
     justify-content: center;
@@ -86,4 +88,7 @@ input {
 .btnDiv{
     display: flex;
     gap: 20px;
+}
+.setTimer{
+    display:block;
 }
