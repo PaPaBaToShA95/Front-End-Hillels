@@ -42,9 +42,10 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             if (+sec.textContent > 0) {
-                sec.classList.add('flip-down');
+                sec.classList.add('flip-card');
                 sec.textContent = formatTime(+sec.textContent - 1);
                 tickSound.play();
+                sec.classList.remove('flip-card');
                 setTimer.style.display = 'none';
                 setTimerBtn.style.display = 'none';
             } else if (+min.textContent > 0) {
