@@ -103,47 +103,22 @@ function rotate() {
             cityName.textContent = data.name;
             country.textContent = data.sys.country;
             rotate();
-              if (country.textContent === 'UA' || cityName.textContent === 'Kiyv') {
+            const citiesInUA = {
+                'Kyiv': 'Київ',
+                'Lviv': 'Львів',
+                'Odesa': 'Одеса',
+                'Poltava': 'Полтава',
+                'Ternopil': 'Тернопіль',
+                'Kharkiv': 'Харків',
+                'Kerch': 'Керч',
+                'Chernivtsi': 'Чернівці',
+                'Cherkasy': 'Черкаси',
+                'Brovary': 'Бровари'
+            };
+            if (data.sys.country === 'UA' && citiesInUA[data.name]) {
                 country.textContent = 'Україна';
-                cityName.textContent = 'Київ';
+                cityName.textContent = citiesInUA[data.name];
             }
-            else if (country.textContent === 'UA' || cityName.textContent === 'Lviv') {
-                country.textContent = 'Україна';
-                cityName.textContent = 'Львів';
-            }
-            else if (country.textContent === 'UA' || cityName.textContent === 'Odesa') {
-                country.textContent = 'Україна';
-                cityName.textContent = 'Одеса';
-            }
-            else if (country.textContent === 'UA' || cityName.textContent === 'Poltava') {
-                country.textContent = 'Україна';
-                cityName.textContent = 'Полтава';
-            }
-            else if (country.textContent === 'UA' || cityName.textContent === 'Ternopil') {
-                country.textContent = 'Україна';
-                cityName.textContent = 'Тернопіль';
-            }
-            else if (country.textContent === 'UA' || cityName.textContent === 'Kharkiv') {
-                country.textContent = 'Україна';
-                cityName.textContent = 'Харків';
-            }
-            else if (country.textContent === 'UA' || cityName.textContent === 'Kerch') {
-                country.textContent = 'Україна';
-                cityName.textContent = 'Керч';
-            }
-            else if (country.textContent === 'UA' || cityName.textContent === 'Chernivtsi') {
-                country.textContent = 'Україна';
-                cityName.textContent = 'Чернівці';
-            }
-            else if (country.textContent === 'UA' || cityName.textContent === 'Cherkasy') {
-                country.textContent = 'Україна';
-                cityName.textContent = 'Черкаси';
-            }
-            else if (country.textContent === 'UA' || cityName.textContent === 'Brovary') {
-                country.textContent = 'Україна';
-                cityName.textContent = 'Бровари';
-            }
-            weatherDIV.style.display = 'flex';
         })
         
         .catch(error => console.log(error));
