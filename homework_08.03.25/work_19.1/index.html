@@ -30,6 +30,9 @@
             <p>Опис: <span id="description"></span></p>
             <p>Швидкість вітру: <span id="windSpeed"></span></p>
             <p>Відчувається як: <span id="feelsLike"></span></p>
+            <p>Місто: <span id="cityName"></span></p>
+            <p>Країна: <span id="country"></span></p>
+
             <button id="reload"><img class="img" src="img/reload.svg" alt="Перезавантажити"></button>
         </div>
     </main>
@@ -42,32 +45,94 @@
     const feelsLike = document.querySelector('#feelsLike');
     const reload = document.querySelector('#reload');
     const weatherDIV = document.querySelector('.weatherDIV');
+    const cityName = document.querySelector('#cityName');
+    const country = document.querySelector('#country');
 
 
-    getWeather.addEventListener('click', ()  => {
-          fetch('https://api.openweathermap.org/data/2.5/weather?id=' + city.value + '&appid=1bbb70540a6d3afc9d01daf92b49a33f&units=metric')
-        .then(response => response.json())
-        .then(data => {
-            temperature.textContent = `${data.main.temp} °С`;
-            description.textContent = data.weather[0].description;
-            windSpeed.textContent = `${data.wind.speed} м/с`;
-            feelsLike.textContent = `${data.main.feels_like} °С`;
-            weatherDIV.style.display = 'flex';
-        })
 
-        .catch(error => console.log(error));
+    getWeather.addEventListener('click', () => {
+        fetch('https://api.openweathermap.org/data/2.5/weather?id=' + city.value + '&lang=ua&appid=1bbb70540a6d3afc9d01daf92b49a33f&units=metric')
+            .then(response => response.json())
+            .then(data => {
+                temperature.textContent = `${data.main.temp} °С`;
+                description.textContent = data.weather[0].description;
+                windSpeed.textContent = `${data.wind.speed} м/с`;
+                feelsLike.textContent = `${data.main.feels_like} °С`;
+                cityName.textContent = data.name;
+                country.textContent = data.sys.country;
+                weatherDIV.style.display = 'flex';
+                const citiesInUA = {
+                    'Kyiv': 'Київ',
+                    'Lviv': 'Львів',
+                    'Odesa': 'Одеса',
+                    'Poltava': 'Полтава',
+                    'Ternopil': 'Тернопіль',
+                    'Kharkiv': 'Харків',
+                    'Kerch': 'Керч',
+                    'Chernivtsi': 'Чернівці',
+                    'Cherkasy': 'Черкаси',
+                    'Brovary': 'Бровари'
+                };
+                if (data.sys.country === 'UA' && citiesInUA[data.name]) {
+                    country.textContent = 'Україна';
+                    cityName.textContent = citiesInUA[data.name];
+                }
+            })
+            .catch(error => console.log(error));
     });
 
 
+
     reload.addEventListener('click', () => {
-        fetch('https://api.openweathermap.org/data/2.5/weather?id=' + city.value + '&appid=1bbb70540a6d3afc9d01daf92b49a33f&units=metric')
+        fetch('https://api.openweathermap.org/data/2.5/weather?id=' + city.value + '&lang=ua&appid=1bbb70540a6d3afc9d01daf92b49a33f&units=metric')
         .then(response => response.json())
         .then(data => {
             temperature.textContent = `${data.main.temp} °С`;
             description.textContent = data.weather[0].description;
             windSpeed.textContent = `${data.wind.speed} м/с`;
             feelsLike.textContent = `${data.main.feels_like} °С`;
-            
+            cityName.textContent = data.name;
+            country.textContent = data.sys.country;
+              if (country.textContent === 'UA' || cityName.textContent === 'Kiyv') {
+                country.textContent = 'Україна';
+                cityName.textContent = 'Київ';
+            }
+            else if (country.textContent === 'UA' || cityName.textContent === 'Lviv') {
+                country.textContent = 'Україна';
+                cityName.textContent = 'Львів';
+            }
+            else if (country.textContent === 'UA' || cityName.textContent === 'Odesa') {
+                country.textContent = 'Україна';
+                cityName.textContent = 'Одеса';
+            }
+            else if (country.textContent === 'UA' || cityName.textContent === 'Poltava') {
+                country.textContent = 'Україна';
+                cityName.textContent = 'Полтава';
+            }
+            else if (country.textContent === 'UA' || cityName.textContent === 'Ternopil') {
+                country.textContent = 'Україна';
+                cityName.textContent = 'Тернопіль';
+            }
+            else if (country.textContent === 'UA' || cityName.textContent === 'Kharkiv') {
+                country.textContent = 'Україна';
+                cityName.textContent = 'Харків';
+            }
+            else if (country.textContent === 'UA' || cityName.textContent === 'Kerch') {
+                country.textContent = 'Україна';
+                cityName.textContent = 'Керч';
+            }
+            else if (country.textContent === 'UA' || cityName.textContent === 'Chernivtsi') {
+                country.textContent = 'Україна';
+                cityName.textContent = 'Чернівці';
+            }
+            else if (country.textContent === 'UA' || cityName.textContent === 'Cherkasy') {
+                country.textContent = 'Україна';
+                cityName.textContent = 'Черкаси';
+            }
+            else if (country.textContent === 'UA' || cityName.textContent === 'Brovary') {
+                country.textContent = 'Україна';
+                cityName.textContent = 'Бровари';
+            }
         })
         .catch(error => console.log(error));
     });
