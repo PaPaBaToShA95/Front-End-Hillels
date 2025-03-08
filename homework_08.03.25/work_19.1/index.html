@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Віджет погоди через API</title>
+<link rel="icon" href="img/favicon.webp" type="image/webp" sizes="16x16">
+
 </head>
 <body>
     <main>
@@ -47,8 +49,15 @@
     const weatherDIV = document.querySelector('.weatherDIV');
     const cityName = document.querySelector('#cityName');
     const country = document.querySelector('#country');
+    const img = document.querySelector('.img');
 
-
+function rotate() {
+     img.classList.add('rotate');
+    setTimeout(() => {
+        img.classList.remove('rotate');
+    },1000)
+    
+}
 
     getWeather.addEventListener('click', () => {
         fetch('https://api.openweathermap.org/data/2.5/weather?id=' + city.value + '&lang=ua&appid=1bbb70540a6d3afc9d01daf92b49a33f&units=metric')
@@ -93,6 +102,7 @@
             feelsLike.textContent = `${data.main.feels_like} °С`;
             cityName.textContent = data.name;
             country.textContent = data.sys.country;
+            rotate();
               if (country.textContent === 'UA' || cityName.textContent === 'Kiyv') {
                 country.textContent = 'Україна';
                 cityName.textContent = 'Київ';
@@ -133,7 +143,9 @@
                 country.textContent = 'Україна';
                 cityName.textContent = 'Бровари';
             }
+            weatherDIV.style.display = 'flex';
         })
+        
         .catch(error => console.log(error));
     });
    </script>
@@ -213,6 +225,10 @@
     p{
         font-size: 18px;
         font-weight: 700;
+    }
+    .rotate{
+        transform: rotate(360deg);
+        transition: all 1s ease-in-out;
     }
 </style>
 </html>
