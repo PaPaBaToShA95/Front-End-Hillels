@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="UK">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Віджет погоди через API у вигляді Grid системи та чекбоксів</title>
+</head>
+
+<body>
+    <main>
+        <div class="container">
+            <p class="city">Віджет погоди через API у вигляді GRID системи та чекбоксів</p>
+            <p class="title">Виберіть міста</p>
+            <div class="checkbox">
+                <div class="chek"><input type="checkbox" value="703448" id="Kyiv">Київ<br /></div>
+                <div class="chek"><input type="checkbox" value="702550" id="Lviv">Львів<br /></div>
+                <div class="chek"><input type="checkbox" value="698740" id="Odesa">Одеса<br /></div>
+                <div class="chek"><input type="checkbox" value="696643" id="Poltava">Полтава<br /></div>
+                <div class="chek"><input type="checkbox" value="691650" id="Ternopil">Тернопіль<br /></div>
+                <div class="chek"><input type="checkbox" value="706483" id="Kharkiv">Харків<br /></div>
+                <div class="chek"><input type="checkbox" value="706524" id="Kerch">Керч<br /></div>
+                <div class="chek"><input type="checkbox" value="710719" id="Chernivtsi">Чернівці<br /></div>
+                <div class="chek"><input type="checkbox" value="710791" id="Cherkasy">Черкаси<br /></div>
+                <div class="chek"><input type="checkbox" value="711390" id="Brovary">Бровари<br /></div>
+            </div>
+        </div>
+        <div class="gridWether"></div>
+        <script>
+            const gridWether = document.querySelector('.gridWether');
+
+
+            function createWeatherWidget(cityId, cityName) {
+                const citiesInUA = {
+                    'Kyiv': 'Києві',
+                    'Lviv': 'Львові',
+                    'Odesa': 'Одесі',
+                    'Poltava': 'Полтаві',
+                    'Ternopil': 'Тернополі',
+                    'Kharkiv': 'Харкові',
+                    'Kerch': 'Керчі',
+                    'Chernivtsi': 'Чернівцях',
+                    'Cherkasy': 'Черкасах',
+                    'Brovary': 'Броварах'
+                };
+
+                const translatedCityName = citiesInUA[cityName] || cityName;
+
+                const weatherDiv = document.createElement('div');
+                weatherDiv.classList.add('weatherDIV');
+                weatherDiv.id = cityName + 'Div';
+                weatherDiv.innerHTML = `
+        <h2>Погода у ${translatedCityName}</h2>
+        <img class="img" id="icon-${cityName}">
+        <p>Температура: <span id="temperature-${cityName}"></span></p>
+        <p>Опис: <span id="description-${cityName}"></span></p>
+        <p>Швидкість вітру: <span id="windSpeed-${cityName}"></span></p>
+        <p>Відчувається як: <span id="feelsLike-${cityName}"></span></p>
+        <button class="reload-btn" data-city-id="${cityId}" data-city-name="${cityName}">
+            <img class="img" src="img/reload.svg" alt="Перезавантажити">
+        </button>
+    `;
+
+                fetchWeatherData(cityId, cityName);
+                gridWether.appendChild(weatherDiv);
+            }
+
+
+            function fetchWeatherData(cityId, cityName) {
+                fetch(`https://api.openweathermap.org/data/2.5/weather?id=${cityId}&lang=ua&appid=1bbb70540a6d3afc9d01daf92b49a33f&units=metric`)
+                    .then(response => response.json())
+                    .then(data => {
+                        document.querySelector(`#temperature-${cityName}`).textContent = `${data.main.temp} °С`;
+                        document.querySelector(`#description-${cityName}`).textContent = data.weather[0].description;
+                        document.querySelector(`#windSpeed-${cityName}`).textContent = `${data.wind.speed} м/с`;
+                        document.querySelector(`#feelsLike-${cityName}`).textContent = `${data.main.feels_like} °С`;
+                        document.querySelector(`#icon-${cityName}`).src = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
+                    })
+                    .catch(error => console.log('Помилка:', error));
+            }
+            document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+                checkbox.addEventListener('change', function () {
+                    if (this.checked) {
+                        createWeatherWidget(this.value, this.id);
+                    } else {
+                        const weatherDiv = document.getElementById(this.id + 'Div');
+                        gridWether.removeChild(weatherDiv);
+                    }
+                });
+            });
+
+            gridWether.addEventListener('click', function (event) {
+                if (event.target.closest('.reload-btn')) {
+                    const cityId = event.target.closest('.reload-btn').getAttribute('data-city-id');
+                    const cityName = event.target.closest('.reload-btn').getAttribute('data-city-name');
+                    fetchWeatherData(cityId, cityName);
+                }
+            });
+
+        </script>
+
+        <style>
+            .container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .checkbox {
+                display: flex;
+                gap: 20px;
+            }
+
+            .chek {
+                border: 2px solid #ffffff;
+                border-radius: 25px;
+                padding: 4px 8px 4px 8px;
+                color: aqua;
+                font-size: 18px;
+            }
+
+            input {
+                cursor: pointer;
+            }
+
+            .weatherDIV {
+                color: white;
+                display: block;
+                flex-direction: column;
+                background-color: rgb(34, 34, 34);
+                padding: 10px;
+                border-radius: 15px;
+                border: #555 solid 3px;
+                width: 300px;
+                height: max-content;
+                align-items: center;
+                margin-bottom: 20px;
+            }
+
+            body {
+                background-color: #555;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                margin-top: 50px;
+                gap: 20px;
+            }
+
+            .img {
+                width: 40px;
+                height: 40px;
+                object-fit: cover;
+                filter: invert();
+            }
+
+            .reload-btn {
+                width: 40px;
+                height: 40px;
+                background-color: transparent;
+                border: none;
+                cursor: pointer;
+            }
+
+            .gridWether {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 20px;
+                justify-items: center;
+                margin-top: 50px;
+            }
+            .city{
+                font-size: 26px;
+                color: white;
+                margin-bottom: 20px;
+            }
+            .title{
+                color: white;
+                margin-bottom: 20px;
+                font-size: 24px;
+            }
+        </style>
+    </main>
+</body>
+
+</html>
