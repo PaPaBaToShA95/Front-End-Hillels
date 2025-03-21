@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="src/style.css">
+    <script src="src/script.js" defer></script>
+    <title>ToDo List з використанням jQuery та Bootstrap</title>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">ToDo List</h1>
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <form id="todo-form">
+                    <div class="input-group mb-3">
+                        <input type="text" id="todo-input" class="form-control" placeholder="Введіть завдання...">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="submit">Додати до списку</button>
+                        </div>
+                    </div>
+                </form>
+
+                <ul id="todo-list" class="list-group">
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="todoModal" tabindex="-1" role="dialog" aria-labelledby="todoModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="todoModalLabel">Завдання</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p id="modal-todo-content"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрити</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
